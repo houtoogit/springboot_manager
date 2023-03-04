@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+
+spring:
+  application:
+    name: study
+
+  datasource:
+    #    driver-class-name: com.mysql.jdbc.Driver
+    #    url: jdbc:mysql://rm-wz97y18db02b3ut69mo.mysql.rds.aliyuncs.com:3306/hello_video?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+    #    username: root
+    #    password: tDfZDoXs9eYXxrL5
+
+    # Alibaba数据库连接池
+    druid:
+      druidClassName: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://1.116.12.214:3306/houtoo?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&useSSL=false
+      username: root
+      password: root
+
+      maxActive: 30 #最大连接数
+      minIdle: 5 #最小连接数
+      maxWait: 10000 #获取连接的最大等待时间
+      validationgQuery: SELECT 'X' #解决mysql8小时的问题
+      timeBetweenEvictionRunsMillis: 60000 #空闲连接的检查时间间隔
+      minEvictableIdleTimeMillis: 300000 #空闲连接最小空闲时间

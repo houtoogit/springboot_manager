@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sky.admin.mapper.AdminInfoMapper">
+
+    <resultMap id="adminInfoMap" type="com.sky.admin.entity.AdminInfo">
+        <id column="id" property="id"/>
+        <result column="admin_username" property="username"/>
+        <result column="admin_name" property="name"/>
+        <result column="admin_password" property="password"/>
+        <result column="admin_enabled" property="enabled"/>
+        <result column="role_id" property="roleId"/>
+        <result column="admin_lasttime" property="lasttime"/>
+        <result column="admin_lastip" property="lastip"/>
+        <result column="admin_visit_count" property="visitCount"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+
+    <select id="getList" resultMap="adminInfoMap">
+        SELECT
+            id,
+            admin_username,
+            admin_name,
+            admin_password,
+            admin_enabled,
+            role_id,
+            admin_lasttime,
+            admin_lastip,
+            admin_visit_count,
+            remark
+        FROM
+            admin_info
+    </select>
+
+</mapper>

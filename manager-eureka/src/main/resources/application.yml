@@ -1,0 +1,37 @@
+spring:
+  application:
+    # 注册中心的应用名称
+    name: eureka
+
+
+  datasource:
+    # Alibaba数据库连接池
+    druid:
+      druidClassName: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://1.116.12.214:3306/houtoo?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+      username: root
+      password: root
+
+      maxActive: 30 #最大连接数
+      minIdle: 5 #最小连接数
+      maxWait: 10000 #获取连接的最大等待时间
+      validationgQuery: SELECT 'X' #解决mysql8小时的问题
+      timeBetweenEvictionRunsMillis: 60000 #空闲连接的检查时间间隔
+      minEvictableIdleTimeMillis: 300000 #空闲连接最小空闲时间
+
+
+server:
+  # 注册中心的端口
+  port: 8761
+
+
+# Eureka配置
+eureka:
+  client:
+    # 禁止自己当做服务注册
+    register-with-eureka: false
+    # 屏蔽注册信息
+    fetch-registry: false
+    # 注册器路径，本身是注册器的时候，如果没有备用注册器，则填写自己，如果有备用注册器，则填写对方
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
